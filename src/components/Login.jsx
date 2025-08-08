@@ -3,8 +3,9 @@ import { useState } from 'react';
 import axios from "axios"
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../utils/constants';
+import Signup from './Signup'
 
 const Login = () => {
     const [email, setEmail] = useState("shreya@gmail.com");
@@ -46,6 +47,7 @@ const Login = () => {
                             <input type="text" placeholder="Password" value={password} className="input input-bordered w-full max-w-xs" onChange={(e) => { setPassword(e.target.value) }} />
                         </label>
                     </div>
+                    {/* <Link to="/signup" className='text-blue-400'>Don't have an account?</Link> */}
                     <p className='text-red-500'>{error}</p>
                     <div className="card-actions justify-center">
                         <button className="btn btn-primary" onClick={handleLogin}>Login</button>

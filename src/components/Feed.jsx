@@ -5,10 +5,12 @@ import { BASE_URL } from '../utils/constants'
 import { useDispatch, useSelector } from 'react-redux'
 import { addFeed} from '../utils/feedSlice'
 import UserCard from './UserCard';
+import { useNavigate } from 'react-router-dom';
 
 const Feed = () => {
   const feed = useSelector((store)=> store.feed);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const getFeed = async ()=>{
     if(feed){
@@ -19,7 +21,10 @@ const Feed = () => {
       dispatch(addFeed(res?.data?.data));
     }
     catch(err){
-      console.error(err);
+      if(err.status === 401){
+        return navigate("/login");
+      }
+      //console.error(err);
     }
     
   }
