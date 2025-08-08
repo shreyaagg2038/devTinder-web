@@ -73,10 +73,12 @@ const EditProfile = ({ user }) => {
                                 <label className="form-control w-full max-w-xs my-2">
                                     <div className="label">
                                         <div className="dropdown dropdown-hover">
-                                            <div tabIndex={0} role="button" className="btn m-1">{gender}</div>
+                                            <div tabIndex={0} role="button" className="btn m-1">{gender ? gender : "Select Gender"} </div>
                                             <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                                                <li><a onClick={() => setGender("Male")}>Male</a></li>
+                                                <li><a onClick={() => {setGender("Male")}}>Male</a></li>
                                                 <li><a onClick={() => setGender("Female")}>Female</a></li>
+                                                <li><a onClick={() => setGender("others")}>Others</a></li>
+                                                <li><a onClick={() => setGender("")}>None</a></li>
                                             </ul>
                                         </div>
                                     </div>
